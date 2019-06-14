@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SSE Mercure</title>
+</head>
+<body>
+    <h1>Mercure: SSE 2</h1>
+
+    <p>
+        <strong>Status:</strong>
+        <em id="status">...</em>
+    </p>
+</body>
+
+<script>
+
+    const es = new EventSource('http://localhost:3000/hub?topic=' + encodeURIComponent('http://example.com/books/2'));
+    es.onmessage = e => {
+        // Will be called every time an update is published by the server
+        const data = JSON.parse(e.data);
+        console.log(data);
+
+        document.querySelector('#status').innerHTML = data.status;
+    }
+
+</script>
+
+</html>

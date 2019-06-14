@@ -1,0 +1,19 @@
+index:
+    path: /
+    controller: App\Controller\IndexController
+
+publish:
+    path: /publish
+    controller: App\Controller\PublishController
+
+available:
+    path: /available
+    controller: App\Controller\AvailableController
+
+async:
+    path: /async
+    controller: App\Controller\AsyncController
+
+discover:
+    path: /discover
+    controller: App\Controller\DiscoverController
